@@ -25,3 +25,15 @@ def header_operations(htags, hnames):
             tag_name_dict[tag] = names
 
     return tag_name_dict
+
+class CleanText:
+
+    def __init__(self, text):
+
+        self.text = text
+
+    def remove_whitespace(self):
+
+        self.text = self.text.replace('\n'. '').\
+            replace('\t', '').\
+            replace('  ', ' ')

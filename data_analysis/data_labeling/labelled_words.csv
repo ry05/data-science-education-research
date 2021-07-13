@@ -1,0 +1,499 @@
+word,labels
+policy,Not determinable
+foundations,Not determinable
+workforce,Not determinable
+environmental,Not determinable
+introduction,Not determinable
+change,Not determinable
+function,Data Representation and Transformation
+planning,Not determinable
+security,Science about Data Science
+acquisition,"Data Gathering, Preparation and Exploration"
+python,Computing with Data
+civic,Not determinable
+msba,Not determinable
+opinion,Not determinable
+numerical,Data Representation and Transformation
+disciplinerelated,Not determinable
+foundational,Not determinable
+softs,Not determinable
+projects,Not determinable
+support,Not determinable
+methods,Not determinable
+spread,Not determinable
+machine,"Data Modeling; Data Gathering, Preparation and Exploration"
+c,Computing with Data
+products,Not determinable
+spatial,Not determinable
+data,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+tools,Computing with Data
+markets,Not determinable
+multivariate,Data Modeling
+political,Not determinable
+sports,Not determinable
+implementing,Not determinable
+matrix,Data Representation and Transformation
+value,Not determinable
+society,Not determinable
+series,Not determinable
+egovernance,Not determinable
+gis,Not determinable
+bootcamp,Not determinable
+physiological,Not determinable
+communications,Not determinable
+topics,Not determinable
+datadriven,Not determinable
+java,Computing with Data
+essentials,Not determinable
+operationalizing,Not determinable
+information,Computing with Data
+networks,Data Modeling
+vision,Computing with Data; Data Modeling
+generation,Not determinable
+innovation,Not determinable
+bioinspired,Not determinable
+accelerated,Not determinable
+concepts,Not determinable
+distributed,Computing with Data
+algorithms,Data Representation and Transformation
+microeconomics,Not determinable
+msbfa,Not determinable
+era,Not determinable
+use,Not determinable
+concentration,Not determinable
+scalable,Computing with Data
+deep,Not determinable
+major,Not determinable
+precision,Not determinable
+presenting,Data Visualization and Presentation
+domains,Not determinable
+managerial,Not determinable
+linear,Data Representation and Transformation; Data Modeling
+cases,Not determinable
+handson,Not determinable
+strategy,Not determinable
+experimental,"Data Gathering, Preparation and Exploration"
+practicum,Not determinable
+creation,"Data Gathering, Preparation and Exploration"
+optimization,Data Representation and Transformation
+education,Not determinable
+public,Not determinable
+electrical,Not determinable
+career,Not determinable
+reporting,Data Visualization and Presentation
+new,Not determinable
+random,Data Representation and Transformation
+collection,"Data Gathering, Preparation and Exploration"
+large,Not determinable
+techniques,Not determinable
+survey,"Data Gathering, Preparation and Exploration"
+strategies,Not determinable
+visualization,Data Visualization and Presentation
+algorithm,Data Representation and Transformation
+insurance,Not determinable
+leadership,Not determinable
+teams,Not determinable
+curriculum,Not determinable
+imaging,"Data Representation and Transformation; Data Gathering, Preparation and Exploration"
+statistical,Data Representation and Transformation; Data Modeling
+media,Not determinable
+knowledge,"Data Gathering, Preparation and Exploration"
+practice,Not determinable
+image,"Data Gathering, Preparation and Exploration; Data Representation and Transformation"
+r,Computing with Data
+generating,"Data Gathering, Preparation and Exploration"
+customer,Not determinable
+regression,Data Modeling
+aspects,Not determinable
+robotics,Computing with Data
+video,"Data Gathering, Preparation and Exploration"
+ebusiness,Not determinable
+intermediate,Not determinable
+evaluation,Not determinable
+protection,Science about Data Science
+network,Data Modeling; Computing with Data
+scientific,Not determinable
+qualitative,Not determinable
+corporate,Not determinable
+national,Not determinable
+discrete,Data Representation and Transformation
+cities,Not determinable
+seminar,Not determinable
+storytelling,Data Visualization and Presentation
+intro,Not determinable
+medical,Not determinable
+stat,Data Representation and Transformation; Data Modeling
+frameworks,Science about Data Science
+disruptive,Not determinable
+utilizing,Not determinable
+signal,Data Representation and Transformation
+starts,Not determinable
+economic,Not determinable
+sql,Computing with Data
+nlp,Data Modeling; Computing with Data
+matrices,Data Representation and Transformation
+electronic,Computing with Data
+measurement,Not determinable
+multi,Not determinable
+legal,Not determinable
+cyber,Computing with Data
+making,Not determinable
+etiquettes,Not determinable
+experimentation,Data Modeling
+scaling,Computing with Data
+decisionmaking,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+text,Data Representation and Transformation
+sociotechnical,Not determinable
+land,Not determinable
+commerce,Not determinable
+ipr,Science about Data Science
+efficient,Computing with Data
+error,Not determinable
+describing,Data Visualization and Presentation
+analytics’,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+remote,Not determinable
+humancentered,Not determinable
+managers,Not determinable
+manipulation,"Data Gathering, Preparation and Exploration"
+hrm,Not determinable
+natural,Not determinable
+domain,Not determinable
+chain,Not determinable
+signals,Data Representation and Transformation
+informatics,Computing with Data
+rprogramming,Computing with Data
+maths,Data Representation and Transformation
+behavioral,Not determinable
+iii,Not determinable
+databases,Data Representation and Transformation
+process,Science about Data Science
+venture,Not determinable
+sustainability,Not determinable
+accounting,Not determinable
+hadoop,Computing with Data
+computation,Computing with Data
+fundamentals,Not determinable
+unsupervised,Data Modeling
+bigdata,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+applied,Not determinable
+mathematics,Data Representation and Transformation
+stochastic,Data Representation and Transformation; Data Modeling
+advance,Not determinable
+sampling,"Data Gathering, Preparation and Exploration"
+relational,Data Representation and Transformation
+approaches,Not determinable
+design,Not determinable
+quantitative,Data Representation and Transformation; Data Modeling
+speech,Not determinable
+evidencebased,Data Modeling
+action,Not determinable
+basic,Not determinable
+reinforcement,Data Modeling
+dot,Not determinable
+computing,Computing with Data
+relations,Data Representation and Transformation
+course,Not determinable
+finance,Not determinable
+practices,Science about Data Science
+program,Computing with Data
+intlelligence,Data Modeling
+analysts,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+warehouse,"Data Gathering, Preparation and Exploration"
+core,Not determinable
+statement,Not determinable
+resarch,Not determinable
+privacy,Science about Data Science
+democratizing,Not determinable
+biomedical,Not determinable
+recognition,Data Modeling
+processing,"Data Gathering, Preparation and Exploration"
+nosql,Data Representation and Transformation
+mis,Not determinable
+modeling,Data Modeling
+resource,Not determinable
+communicating,Data Visualization and Presentation
+bayesian,Data Modeling
+application,Not determinable
+sales,Not determinable
+platforms,Computing with Data
+international,Not determinable
+casestudies,Not determinable
+decisions,Not determinable
+extensions,Not determinable
+sample,"Data Gathering, Preparation and Exploration"
+preparation,"Data Gathering, Preparation and Exploration"
+prescriptive,Not determinable
+management,Not determinable
+prolog,Computing with Data
+realtime,"Data Gathering, Preparation and Exploration"
+english,Not determinable
+computer,Computing with Data
+olap,Data Representation and Transformation
+perl,Computing with Data
+organizational,Not determinable
+geographic,Not determinable
+context,Not determinable
+rights,Not determinable
+behaviour,Not determinable
+tableau,Data Visualization and Presentation
+amrita,Not determinable
+sourcing,Not determinable
+statistics,Data Modeling
+negotiated,Not determinable
+web,"Data Gathering, Preparation and Exploration; Computing with Data"
+real,Not determinable
+solving,Not determinable
+pricing,Not determinable
+methodology,Science about Data Science
+learningstatistics,Data Modeling
+india,Not determinable
+decision,Not determinable
+grad,Not determinable
+policies,Not determinable
+largescale,Not determinable
+digital,Computing with Data
+industry,Not determinable
+competency,Not determinable
+dataset,"Data Gathering, Preparation and Exploration; Data Representation and Transformation"
+multidisciplinary,Not determinable
+probabilistic,Data Representation and Transformation
+excel,Computing with Data; Data Representation and Transformation
+spreadsheet,"Data Gathering, Preparation and Exploration"
+storage,Data Representation and Transformation
+financial,Not determinable
+display,Data Visualization and Presentation
+governance,Not determinable
+virtualization,Computing with Data
+practical,Computing with Data
+database,Data Representation and Transformation
+questionnaire,"Data Gathering, Preparation and Exploration"
+cocurricular,Not determinable
+ethical,Science about Data Science
+human,Not determinable
+elections,Not determinable
+population,"Data Gathering, Preparation and Exploration"
+law,Not determinable
+interdisciplinary,Not determinable
+service,Not determinable
+cybersecurity,Computing with Data
+mba,Not determinable
+project,Not determinable
+transformation,Data Representation and Transformation
+analyzing,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+analytic,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+systems,Not determinable
+scratch,Not determinable
+colloquium,Not determinable
+market,Not determinable
+convex,Data Representation and Transformation
+implications,Science about Data Science
+total,Not determinable
+practicing,Not determinable
+workshop,Not determinable
+negotiations,Not determinable
+centered,Not determinable
+intelligence,Data Modeling
+causal,Data Modeling
+languages,Computing with Data
+scale,Computing with Data
+justice,Not determinable
+dynamic,Not determinable
+ii,Not determinable
+development,Not determinable
+algortihm,Data Representation and Transformation
+mapping,Not determinable
+framing,"Data Gathering, Preparation and Exploration"
+diagnostics,Not determinable
+science,Not determinable
+technology,Computing with Data
+classification,Data Modeling
+nonlinear,Data Modeling
+study,Not determinable
+ethics,Science about Data Science
+foundation,Not determinable
+weighting,Not determinable
+people,Not determinable
+consumer,Not determinable
+base,Not determinable
+pattern,Data Modeling
+query,Computing with Data
+graduate,Not determinable
+skills,Not determinable
+sensing,"Data Gathering, Preparation and Exploration"
+studies,Not determinable
+insights,Data Visualization and Presentation
+language,Not determinable
+interactive,Not determinable
+equitable,Not determinable
+bridge,Not determinable
+computational,Computing with Data
+values,Science about Data Science
+framework,Science about Data Science
+behavior,Not determinable
+analysis,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+daily,Not determinable
+macroeconomics,Not determinable
+analytics,"Data Gathering, Preparation and Exploration; Data Representation and Transformation; Computing with Data; Data Modeling; Data Visualization and Presentation"
+time,Not determinable
+exploration,"Data Gathering, Preparation and Exploration"
+community,Not determinable
+strategic,Not determinable
+soc,Not determinable
+revenue,Not determinable
+execution,Not determinable
+math,Data Representation and Transformation
+applications,Not determinable
+visualisation,Data Visualization and Presentation
+visual,Data Visualization and Presentation; Data Modeling
+forecasting,Data Modeling
+consulting,Not determinable
+records,"Data Gathering, Preparation and Exploration"
+musasmart,Not determinable
+soft,Not determinable
+metrics,"Data Gathering, Preparation and Exploration; Data Modeling"
+special,Not determinable
+system,Computing with Data
+resources,"Data Gathering, Preparation and Exploration"
+ann,Data Modeling
+big,"Data Gathering, Preparation and Exploration"
+inference,Data Modeling
+economy,Not determinable
+complex,Not determinable
+structures,Not determinable
+–,Not determinable
+firm,Not determinable
+ai,Data Modeling
+collecting,"Data Gathering, Preparation and Exploration"
+artificial,Data Modeling
+advanced,Not determinable
+coding,Computing with Data
+massive,"Data Gathering, Preparation and Exploration"
+programming,Computing with Data
+dbms,Data Representation and Transformation
+thinking,Science about Data Science
+therapeutics,Not determinable
+models,Data Modeling
+sciences,Not determinable
+hr,Not determinable
+research,Not determinable
+autonomous,Data Modeling; Computing with Data
+sheet,"Data Gathering, Preparation and Exploration; Data Representation and Transformation"
+retrieval,"Data Gathering, Preparation and Exploration"
+critical,Not determinable
+responsibility,Science about Data Science
+distributions,"Data Representation and Transformation; Data Gathering, Preparation and Exploration"
+campaigns,Not determinable
+unifying,Not determinable
+control,Not determinable
+supervised,Data Modeling
+algorithmic,Data Representation and Transformation
+exploratory,"Data Gathering, Preparation and Exploration"
+retail,Science about Data Science
+modern,Not determinable
+workshops,Not determinable
+operating,Not determinable
+driven,Not determinable
+social,Not determinable
+edge,Computing with Data
+leader,Not determinable
+implementation,Not determinable
+datasets,"Data Gathering, Preparation and Exploration"
+supply,Not determinable
+lab,Computing with Data
+net,Computing with Data
+price,Not determinable
+societal,Not determinable
+cyptography,Computing with Data
+theoretical,Not determinable
+preparing,"Data Gathering, Preparation and Exploration"
+mps,Not determinable
+portfolio,Not determinable
+scientists,Not determinable
+investment,Not determinable
+space,Not determinable
+high,Not determinable
+engineers,Computing with Data
+competitive,Not determinable
+interaction,Not determinable
+industries,Not determinable
+crm,Data Representation and Transformation
+managing,Not determinable
+organization,Not determinable
+intelligent,Data Modeling
+communication,Data Visualization and Presentation
+probability,Data Representation and Transformation
+voting,Not determinable
+performance,Not determinable
+oriented,Not determinable
+pythonprogramming,Computing with Data
+act,Not determinable
+results,Not determinable
+problem,Not determinable
+cloud,Computing with Data
+options,Not determinable
+predictive,Data Modeling
+complexity,Computing with Data
+leading,Not determinable
+cleaning,Data Representation and Transformation
+banking,Not determinable
+iot,"Computing with Data; Data Gathering, Preparation and Exploration"
+demographic,Not determinable
+simulation,Data Representation and Transformation
+entrepreneurship,Not determinable
+sas,Computing with Data
+softcore,Data Modeling
+investigation,"Data Gathering, Preparation and Exploration"
+architectures,Computing with Data
+constitution,Not determinable
+reasoning,Data Modeling
+neural,Data Modeling
+electives,Not determinable
+software,Computing with Data
+generalized,Data Modeling
+risk,Not determinable
+theory,Not determinable
+variance,Data Modeling
+effective,Not determinable
+cognitive,Not determinable
+economics,Not determinable
+wrangling,"Data Gathering, Preparation and Exploration"
+health,Not determinable
+warehousing,"Data Gathering, Preparation and Exploration"
+basics,Not determinable
+algebra,Data Representation and Transformation
+mathematical,Data Representation and Transformation
+operations,Data Representation and Transformation
+problems,Not determinable
+marketing,Not determinable
+professional,Not determinable
+embedded,Computing with Data
+issues,Science about Data Science
+life,Not determinable
+econometrics,Not determinable
+enterprise,Not determinable
+toolbox,Science about Data Science
+impact,Not determinable
+success,Not determinable
+learning,Data Modeling
+logic,Data Representation and Transformation
+building,Not determinable
+hightech,Computing with Data
+representation,Not determinable
+engineering,Computing with Data
+pythonr,Computing with Data
+geospatial,Not determinable
+technologies,Computing with Data
+unstructured,"Data Gathering, Preparation and Exploration"
+future,Not determinable
+modelling,Data Modeling
+business,Not determinable
+computations,Computing with Data
+graphical,Data Visualization and Presentation
+case,Not determinable
+principles,Science about Data Science
+javascript,Computing with Data
+quality,Not determinable
+interactions,Not determinable
+mining,Data Modeling
+dialogues,Not determinable
+processes,Not determinable
