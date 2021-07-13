@@ -1,8 +1,9 @@
 # Data Science Education Research
 
 ![made-with-python](https://img.shields.io/badge/MADE%20WITH-PYTHON-blue?style=for-the-badge&logo=appveyor)
-![license-mit](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge&logo=appveyor)
+![made-with-R](https://img.shields.io/badge/MADE%20WITH-R-blue?style=for-the-badge&logo=appveyor)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
+![license-mit](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge&logo=appveyor)
 
 
 ![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
