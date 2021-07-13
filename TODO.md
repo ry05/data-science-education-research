@@ -21,6 +21,9 @@
   - [ ] By data science aspirants
   - [ ] By fellow researchers
 - [ ] DO NOT ADD CONTACT ME DETAILS WHEN SUBMITTING THE PROJECT CODE
+- [ ] Create a Logo for the project
+  - [ ] Simple, minimalisitic
+  - [ ] Title should convey the project's intent
 
 ## Code
 
