@@ -12,6 +12,8 @@
 
 A brief description of what this project does and who it's for
 
+## Table of Contents
+
 
 ## Badges
 
@@ -24,10 +26,11 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
   
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - LSE Dept.
 
+## Inspiration
+
+List the several points of inspiration for your work.
   
 ## Authors
 
