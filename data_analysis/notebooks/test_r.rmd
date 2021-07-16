@@ -18,7 +18,7 @@ theme_set(
 
 
 ```{r}
-df <- read_csv("../../data_collection/data/labelled/academic_data.csv")
+df <- read_csv("../../data_collection/data/labelled/academic_data_3.csv")
 df <- df %>%
   rename(
     D1 = `Data Gathering, Preparation and Exploration`,
@@ -27,9 +27,7 @@ df <- df %>%
     D4 = `Data Modeling`,
     D5 = `Data Visualization and Presentation`,
     D6 = `Science about Data Science`,
-    D7 = `Soft Skills`,
-    D8 = `Domain Specific`,
-    D9 = `Not determinable`
+    D7 = `Not determinable`
   )
 attach(df)
 ```
@@ -41,9 +39,7 @@ fw_labels <- c(
   "D3",
   "D4",
   "D5",
-  "D6",
-  "D7",
-  "D8")
+  "D6")
 
 fw_labels
 ```
@@ -126,24 +122,6 @@ ggbetweenstats(
   data = df,
   x = country, #type
   y = D6,
-  title = "Distribution of division's proportions across countries",
-  #outlier.tagging = TRUE,
-  #outlier.label = uni_name
-)
-
-ggbetweenstats(
-  data = df,
-  x = country, #type
-  y = D7,
-  title = "Distribution of division's proportions across countries",
-  #outlier.tagging = TRUE,
-  #outlier.label = uni_name
-)
-
-ggbetweenstats(
-  data = df,
-  x = country, #type
-  y = D8,
   title = "Distribution of division's proportions across countries",
   #outlier.tagging = TRUE,
   #outlier.label = uni_name

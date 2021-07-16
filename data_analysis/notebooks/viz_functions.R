@@ -58,8 +58,6 @@ program_radar <- function(df, uni) {
       D4 = mean(`D4`),
       D5 = mean(`D5`),
       D6 = mean(`D6`),
-      D7 = mean(`D7`),
-      D8 = mean(`D8`)
     )
   
   plot <- ggradar(df_radar,
