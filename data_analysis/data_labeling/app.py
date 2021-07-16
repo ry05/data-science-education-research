@@ -1,8 +1,3 @@
-import os
-import random
-
-from preprocess import CourseNamesProcessor
-
 import streamlit as st
 import pandas as pd
 

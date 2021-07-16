@@ -33,9 +33,14 @@ class TextPreprocessor:
     def remove_unicode_chars(self):
         self.text = self.text.encode('ascii', 'ignore').decode('utf-8')
 
+    def remove_stopwords(self):
+        without_stopwords = [word for word in self.text.split() if word not in STOP_WORDS]
+        self.text = " ".join(without_stopwords)
+
     def preprocess_text(self):
 
         self.make_lowercase()
+        self.remove_stopwords()
         self.remove_numbers()
         self.remove_punctuations()
         self.remove_urls()
