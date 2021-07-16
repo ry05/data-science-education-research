@@ -1,5 +1,6 @@
 from collections import Counter
 import pandas as pd 
+import statistics
 
 from preprocess import TextPreprocessor
 
@@ -10,8 +11,6 @@ LABELS = [
     "Data Modeling",
     "Data Visualization and Presentation",
     "Science about Data Science",
-    "Soft Skills",
-    "Domain Specific",
     "Not determinable",
 ]
 
@@ -50,7 +49,7 @@ class CourseScorer:
             return course_name
         course_name_lower = course_name.lower()
         for word, label in zip(
-            list(self.dictionary['word']), list(self.dictionary['labels'])):
+            list(self.dictionary['words']), list(self.dictionary['labels'])):
             if word in course_name_lower:
                 labels = labels + ";" + label
 
@@ -116,6 +115,30 @@ class CourseScorer:
             'gds_labels',
             'gds_label_dict'], axis=1)
 
+        # remove programs with no info on compulsory courses
+        self.data = self.data[self.data['compulsory course'] != 'Not inferred']
+
+    def label_by_subject(self, x, subject):
+
+        if subject in x.lower():
+            return 1
+        return 0
+
+    def explicit_labelling(self):
+
+        # data science
+        self.data['Data Gathering, Preparation and Exploration'] = self.data['Data Gathering, Preparation and Exploration'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "data science"))
+        self.data['Data Representation and Transformation'] = self.data['Data Representation and Transformation'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "data science"))
+        self.data['Computing with Data'] = self.data['Computing with Data'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "data science"))
+        self.data['Data Modeling'] = self.data['Data Modeling'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "data science"))
+        self.data['Data Visualization and Presentation'] = self.data['Data Visualization and Presentation'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "data science"))
+
+        # artificial intelligence
+        self.data['Data Gathering, Preparation and Exploration'] = self.data['Data Gathering, Preparation and Exploration'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "artificial intelligence"))
+        self.data['Data Representation and Transformation'] = self.data['Data Representation and Transformation'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "artificial intelligence"))
+        self.data['Computing with Data'] = self.data['Computing with Data'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "artificial intelligence"))
+        self.data['Data Modeling'] = self.data['Data Modeling'] | self.data['compulsory course'].apply(lambda x: self.label_by_subject(x, "artificial intelligence"))
+
     def score_courses_by_gds(self):
 
         self.data["course_name_processed"] = self.data['compulsory course'].\
@@ -129,6 +152,7 @@ class CourseScorer:
         for label in self.labels:
             self.data[label] = self.data.gds_label_dict.apply(lambda x: self.get_status_label_existence(x, label))
 
+        self.explicit_labelling()
         self.clean_up_data()
 
         return self.data
@@ -152,8 +176,6 @@ class ProgramScorer:
                     'Data Modeling': 'sum',
                     'Data Visualization and Presentation': 'sum',
                     'Science about Data Science': 'sum',
-                    'Soft Skills': 'sum',
-                    'Domain Specific': 'sum',
                     'Not determinable': 'sum',
                 })
 
@@ -182,6 +204,49 @@ class ScoreNormalizer:
         normalized_scores = self.normalize()
         self.scored_df = self.scored_df.drop(self.labels, axis=1)
         self.scored_df = pd.concat([self.scored_df, normalized_scores], axis=1)
+
+        return self.scored_df
+
+class GDSBandAllocator:
+
+    def __init__(self, scored_df):
+
+        self.scored_df = scored_df
+        self.labels = LABELS
+
+    def compute_gds_stdev(self):
+
+        temp = self.scored_df[[
+            "Data Gathering, Preparation and Exploration",
+            "Data Representation and Transformation",
+            "Computing with Data",
+            "Data Modeling",
+            "Data Visualization and Presentation",
+            "Science about Data Science",
+        ]]
+
+        gds_mean = temp.apply(lambda x: statistics.mean(x), axis=1)
+        gds_stdev = temp.apply(lambda x: statistics.stdev(x), axis=1)
+
+        self.scored_df['gds_mean'] = gds_mean
+        self.scored_df['gds_stdev'] = gds_stdev
+
+    def select_band(self, x, mu, sigma):
+
+        if x <= (mu-sigma):
+            return "Band 1"
+        elif x >= (mu+sigma):
+            return "Band 3"
+        return "Band 2"
+
+    def allocate_bands(self):
+
+        self.compute_gds_stdev()
+
+        mu = statistics.mean(self.scored_df['gds_stdev'])
+        sigma = statistics.stdev(self.scored_df['gds_stdev'])
+
+        self.scored_df['band'] = self.scored_df['gds_stdev'].apply(lambda x: self.select_band(x, mu, sigma))
 
         return self.scored_df
 

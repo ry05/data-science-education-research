@@ -1,11 +1,12 @@
 import os
 import pandas as pd
-from gds_operations import ProgramScorer, ScoreNormalizer
+from gds_operations import ProgramScorer, ScoreNormalizer, GDSBandAllocator
 
 
 if __name__ == '__main__':
 
-    label_dictionary = pd.read_csv('labelled_words.csv')
+    #label_dictionary = pd.read_csv('labelled_words.csv')
+    label_dictionary = pd.read_csv('labelled_units_words.csv')
 
     data_path = "../../data_collection/data/processed"
     pgm_india = pd.read_csv(os.path.join(data_path, "india_pgms.csv")).fillna("Not inferred")
@@ -46,8 +47,12 @@ if __name__ == '__main__':
     # combine both dataframes
     df = pd.concat([df_india, df_usa])
 
+    # allocate bands to each program based on GDS standard deviations
+    gba = GDSBandAllocator(df)
+    df = gba.allocate_bands()
+
     # save the file
-    df.to_csv('../../data_collection/data/labelled/academic_data.csv', index=False)
+    df.to_csv('../../data_collection/data/labelled/academic_data_3.csv', index=False)
 
 
     
