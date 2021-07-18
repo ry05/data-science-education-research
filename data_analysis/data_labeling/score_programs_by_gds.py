@@ -52,7 +52,7 @@ if __name__ == '__main__':
     df = gba.allocate_bands()
 
     # save the file
-    df.to_csv('../../data_collection/data/labelled/academic_data_3.csv', index=False)
+    df.to_csv('../../data_collection/data/labelled/masters_data_programs_india_usa.csv', index=False)
 
 
     
