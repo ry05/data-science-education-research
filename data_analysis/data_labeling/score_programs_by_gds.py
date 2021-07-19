@@ -5,7 +5,6 @@ from gds_operations import ProgramScorer, ScoreNormalizer, GDSBandAllocator
 
 if __name__ == '__main__':
 
-    #label_dictionary = pd.read_csv('labelled_words.csv')
     label_dictionary = pd.read_csv('labelled_units_words.csv')
 
     data_path = "../../data_collection/data/processed"
@@ -13,10 +12,11 @@ if __name__ == '__main__':
     pgm_usa = pd.read_csv(os.path.join(data_path, "usa_pgms.csv")).fillna("Not inferred")
     curr_india = pd.read_csv(os.path.join(data_path, "india_curr.csv")).fillna("Not inferred")
     curr_usa = pd.read_csv(os.path.join(data_path, "usa_curr.csv")).fillna("Not inferred")
-    curr_usa = curr_usa.drop(['Unnamed: 4', 'Unnamed: 5'], axis=1)
 
     curr_india = curr_india.drop(['course outcome or overview', 'topics covered'], axis=1)
     curr_usa = curr_usa.drop(['course outcome or overview', 'topics covered'], axis=1)
+
+    print(f"Scoring {curr_india.shape[0] + curr_usa.shape[0]} academic data science programs from India or USA ...")
 
     # score programs by gds
     ps = ProgramScorer(label_dictionary, curr_india)
@@ -53,6 +53,8 @@ if __name__ == '__main__':
 
     # save the file
     df.to_csv('../../data_collection/data/labelled/masters_data_programs_india_usa.csv', index=False)
+
+    print(f"Scored data stored at '../../data_collection/data/labelled/masters_data_programs_india_usa.csv'")
 
 
     
