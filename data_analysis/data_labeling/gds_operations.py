@@ -225,10 +225,8 @@ class GDSBandAllocator:
             "Science about Data Science",
         ]]
 
-        gds_mean = temp.apply(lambda x: statistics.mean(x), axis=1)
         gds_stdev = temp.apply(lambda x: statistics.stdev(x), axis=1)
 
-        self.scored_df['gds_mean'] = gds_mean
         self.scored_df['gds_stdev'] = gds_stdev
 
     def select_band(self, x, mu, sigma):

@@ -9,4 +9,4 @@ python -m textblob.download_corpora
 python -m spacy download en_core_web_md
 
 # run command to score the programs with GDS dictionary
-python data_analysis/data_labeling/score_programs_by_gds.py
+# python data_analysis/data_labeling/score_programs_by_gds.py
