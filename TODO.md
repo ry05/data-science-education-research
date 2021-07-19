@@ -24,11 +24,12 @@
 - [ ] Create a Logo for the project
   - [ ] Simple, minimalisitic
   - [ ] Title should convey the project's intent
+- [ ] Edit .gitignore for this project
 
 ## Code
 
 - [ ] Organize into folders
 - [ ] Jupyter notebooks should be kept, but MUST NOT be a part of reproducing finds
-  - [ ] Refactor code to run as scripts
+  - [ ] Refactor code to run as scripts (where possible)
 - [ ] Implement clean code principles
 
