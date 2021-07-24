@@ -227,7 +227,7 @@ class GDSBandAllocator:
 
         gds_stdev = temp.apply(lambda x: statistics.stdev(x), axis=1)
 
-        self.scored_df['gds_stdev'] = gds_stdev
+        self.scored_df['gds_score'] = gds_stdev
 
     def select_band(self, x, mu, sigma):
 
@@ -241,10 +241,10 @@ class GDSBandAllocator:
 
         self.compute_gds_stdev()
 
-        mu = statistics.mean(self.scored_df['gds_stdev'])
-        sigma = statistics.stdev(self.scored_df['gds_stdev'])
+        mu = statistics.mean(self.scored_df['gds_score'])
+        sigma = statistics.stdev(self.scored_df['gds_score'])
 
-        self.scored_df['band'] = self.scored_df['gds_stdev'].apply(lambda x: self.select_band(x, mu, sigma))
+        self.scored_df['band'] = self.scored_df['gds_score'].apply(lambda x: self.select_band(x, mu, sigma))
 
         return self.scored_df
 

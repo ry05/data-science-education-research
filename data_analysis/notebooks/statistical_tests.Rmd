@@ -1,0 +1,679 @@
+---
+title: "Statistical Tests"
+output:
+  html_document:
+    df_print: paged
+---
+
+Testing hypothesis
+
+### Hypotheses
+
+
+### Tests used
+- []()
+
+```{r}
+library(tidyverse)
+library(cowplot)
+library(patchwork)
+library(rstatix)
+library(ggpubr)
+library(vcd)
+
+theme_set(
+  theme_minimal_hgrid(10)
+)
+
+palette <- c("#cb001c", "#ffc107", "#0071b3", "#2f9171")
+```
+
+### Load and Transform Data
+
+```{r, message=FALSE}
+df <- read_csv("../../data_collection/data/labelled/masters_data_programs_india_usa.csv")
+df <- df %>%
+  rename(
+    D1 = `Data Gathering, Preparation and Exploration`,
+    D2 = `Data Representation and Transformation`,
+    D3 = `Computing with Data`,
+    D4 = `Data Modeling`,
+    D5 = `Data Visualization and Presentation`,
+    D6 = `Science about Data Science`,
+    D7 = `Not determinable`
+  ) %>%
+  select(
+    id,
+    type,
+    subject,
+    dept_cat,
+    country,
+    national_rank_qs,
+    D1, D2, D3, D4, D5, D6,
+    gds_score,
+    band
+  )
+attach(df)
+
+head(df)
+```
+
+```{r, message=FALSE}
+# testing for normality
+
+p1 <- ggdensity(D1, fill = "lightgray")
+p2 <- ggqqplot(D1)
+p1 + p2
+
+df %>%
+  shapiro_test(D1, D2, D3, D4, D5, D6, gds_score)
+
+```
+
+None of the numeric features under consideration are normal. Thus, non-parametric tests will be used.
+
+```{r, message=FALSE, fig.width = 11, fig.height = 12, echo = FALSE}
+
+test_means <- df %>% 
+  wilcox_test(D1 ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(D1 ~ country)
+
+p1 <- ggviolin(df, x = "country", y = "D1",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01) + 
+  labs(title = "A. Data Gathering, Preparation and Exploration",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D2 ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(D2 ~ country)
+
+p2 <- ggviolin(df, x = "country", y = "D2",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01) + 
+  labs(title = "B. Data Representation and Transformation",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D3 ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(D3 ~ country)
+
+p3 <- ggviolin(df, x = "country", y = "D3",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01) + 
+  labs(title = "C. Computing with Data",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D4 ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(D4 ~ country)
+
+p4 <- ggviolin(df, x = "country", y = "D4",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01) + 
+  labs(title = "D. Data Modeling",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D5 ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(D5 ~ country)
+
+p5 <- ggviolin(df, x = "country", y = "D5",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01) + 
+  labs(title = "E. Data Visualization and Presentation",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D6 ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(D6 ~ country)
+
+p6 <- ggviolin(df, x = "country", y = "D6",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01) + 
+  labs(title = "F. Science about Data Science",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(gds_score ~ country) %>%
+  add_significance() %>% 
+  add_xy_position(x = "country")
+
+eff_size <- df %>%
+  wilcox_effsize(gds_score ~ country)
+
+p7 <- ggviolin(df, x = "country", y = "gds_score",
+                fill = "country", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "G. Aggregated GDS Score",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Standard deviation of GDS scores for programs") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+(p1 | p2 | p3) / (p4 | p5 | p6) / (p7)
+
+```
+
+Outliers are not excluded as these are considered as impt. pieces of data here.
+
+```{r, message=FALSE, fig.width = 6, fig.height = 8, echo = FALSE}
+
+temp <- df %>%
+  filter(country == "India")
+
+df_dept <- temp %>%
+  filter(dept_cat %in% c("Engineering-related", "Management-related", "Data-related")) %>%
+  arrange(dept_cat) %>%
+  mutate(dept_cat = replace(dept_cat, dept_cat == "Data-related", "Data-related (7%)")) %>%
+  mutate(dept_cat = replace(dept_cat, dept_cat == "Management-related", "Management-related (20%)")) %>%
+  mutate(dept_cat = replace(dept_cat, dept_cat == "Engineering-related", "Engineering-related (53%)"))
+
+test_means_k <- df_dept %>% 
+  kruskal_test(gds_score ~ dept_cat)
+test_means_k
+
+eff_size <- df_dept %>%
+  kruskal_effsize(gds_score ~ dept_cat)
+
+test_means <- df_dept %>%
+  dunn_test(gds_score ~ dept_cat,
+                        p.adjust.method = "bonferroni") %>%
+  add_xy_position(x = "dept_cat")
+
+test_means
+eff_size
+
+p1 <- ggviolin(df_dept, x = "dept_cat", y = "gds_score",
+                fill = "dept_cat", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns = TRUE) + 
+  labs(title = "A. Programs in India",
+       subtitle = paste(get_test_label(test_means_k,  detailed = TRUE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "GDS Score") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+
+temp <- df %>%
+  filter(country == "USA")
+
+df_dept <- temp %>%
+  filter(dept_cat %in% c("Engineering-related", "Management-related", "Data-related")) %>%
+  arrange(dept_cat) %>%
+  mutate(dept_cat = replace(dept_cat, dept_cat == "Data-related", "Data-related (14%)")) %>%
+  mutate(dept_cat = replace(dept_cat, dept_cat == "Management-related", "Management-related (25%)")) %>%
+  mutate(dept_cat = replace(dept_cat, dept_cat == "Engineering-related", "Engineering-related (26%)"))
+
+test_means_k <- df_dept %>% 
+  kruskal_test(gds_score ~ dept_cat)
+test_means_k
+
+eff_size <- df_dept %>%
+  kruskal_effsize(gds_score ~ dept_cat)
+
+test_means <- df_dept %>%
+  dunn_test(gds_score ~ dept_cat,
+                        p.adjust.method = "bonferroni") %>%
+  add_xy_position(x = "dept_cat")
+
+test_means
+eff_size
+
+p2 <- ggviolin(df_dept, x = "dept_cat", y = "gds_score",
+                fill = "dept_cat", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns = TRUE) + 
+  labs(title = "B. Programs in USA",
+       subtitle = paste(get_test_label(test_means_k,  detailed = TRUE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "GDS Score") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+p1 / p2
+
+```
+
+```{r}
+
+count(temp, dept_cat)
+
+
+```
+
+
+```{r, message=FALSE, fig.width = 8, fig.height = 8, echo=FALSE}
+
+temp <- df %>%
+  filter(country == "India")
+
+df_sub <- temp %>%
+  filter(subject %in% c("Data Science", "Business Analytics", "Analytics", "Artificial Intelligence")) %>%
+  arrange(subject) %>%
+  mutate(subject = replace(subject, subject == "Data Science", "Data Science (20%)")) %>%
+  mutate(subject = replace(subject, subject == "Business Analytics", "Business Analytics (20%)")) %>%
+  mutate(subject = replace(subject, subject == "Analytics", "Analytics (17%)")) %>%
+  mutate(subject = replace(subject, subject == "Artificial Intelligence", "Artificial Intelligence (23%)"))
+
+test_means_k <- df_sub %>% 
+  kruskal_test(gds_score ~ subject)
+test_means_k
+
+eff_size <- df_sub %>%
+  kruskal_effsize(gds_score ~ subject)
+
+test_means <- df_sub %>%
+  dunn_test(gds_score ~ subject,
+                        p.adjust.method = "bonferroni") %>%
+  add_xy_position(x = "subject")
+
+test_means
+eff_size
+
+p1 <- ggviolin(df_sub, x = "subject", y = "gds_score",
+                fill = "subject", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns = TRUE) + 
+  labs(title = "A. Programs in India",
+       subtitle = paste(get_test_label(test_means_k,  detailed = TRUE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "GDS Score") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+
+temp <- df %>%
+  filter(country == "USA")
+
+df_sub <- temp %>%
+  filter(subject %in% c("Data Science", "Business Analytics", "Analytics", "Artificial Intelligence")) %>%
+  arrange(subject) %>%
+  mutate(subject = replace(subject, subject == "Data Science", "Data Science (37%)")) %>%
+  mutate(subject = replace(subject, subject == "Business Analytics", "Business Analytics (23%)")) %>%
+  mutate(subject = replace(subject, subject == "Analytics", "Analytics (23%)")) %>%
+  mutate(subject = replace(subject, subject == "Artificial Intelligence", "Artificial Intelligence (7%)"))
+
+test_means_k <- df_sub %>% 
+  kruskal_test(gds_score ~ subject)
+test_means_k
+
+eff_size <- df_sub %>%
+  kruskal_effsize(gds_score ~ subject)
+
+test_means <- df_sub %>%
+  dunn_test(gds_score ~ subject,
+                        p.adjust.method = "bonferroni") %>%
+  add_xy_position(x = "subject")
+
+test_means
+eff_size
+
+p2 <- ggviolin(df_sub, x = "subject", y = "gds_score",
+                fill = "subject", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns = TRUE) + 
+  labs(title = "B. Programs in USA",
+       subtitle = paste(get_test_label(test_means_k,  detailed = TRUE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "GDS Score") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+(p1 / p2)
+
+```
+
+
+
+```{r, message=FALSE, fig.width = 11, fig.height = 12, echo = FALSE}
+
+test_means <- df %>% 
+  wilcox_test(D1 ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(D1 ~ type)
+
+p1 <- ggviolin(df, x = "type", y = "D1",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "A. Data Gathering, Preparation and Exploration",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D2 ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(D2 ~ type)
+
+p2 <- ggviolin(df, x = "type", y = "D2",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "B. Data Representation and Transformation",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D3 ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(D3 ~ type)
+
+p3 <- ggviolin(df, x = "type", y = "D3",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "C. Computing with Data",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D4 ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(D4 ~ type)
+
+p4 <- ggviolin(df, x = "type", y = "D4",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "D. Data Modeling",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D5 ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(D5 ~ type)
+
+p5 <- ggviolin(df, x = "type", y = "D5",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "E. Data Visualization and Presentation",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(D6 ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(D6 ~ type)
+
+p6 <- ggviolin(df, x = "type", y = "D6",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "F. Science about Data Science",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Proportion") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+test_means <- df %>% 
+  wilcox_test(gds_score ~ type) %>%
+  add_significance() %>% 
+  add_xy_position(x = "type")
+
+eff_size <- df %>%
+  wilcox_effsize(gds_score ~ type)
+
+p7 <- ggviolin(df, x = "type", y = "gds_score",
+                fill = "type", palette=palette,
+                add = "boxplot", add.params = list(fill = "white")) +
+  stat_pvalue_manual(test_means, tip.length=0.01, hide.ns=TRUE) + 
+  labs(title = "G. Aggregated GDS Score",
+       subtitle = paste(get_test_label(test_means,  detailed = FALSE, type="text"),
+                        ", Effect size =", eff_size$magnitude),
+       x = "",
+       y = "Standard deviation of GDS scores for programs") +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+(p1 | p2 | p3) / (p4 | p5 | p6) / (p7)
+
+```
+
+
+```{r, message=FALSE, echo=FALSE, fig.width = 15, fig.height = 24}
+
+ggdotchart(df, x = "id", y = "gds_score",
+           color = "country",                               
+           palette = c(palette[1], palette[3]), 
+           sorting = "ascending",                      
+           rotate = TRUE,                                
+           dot.size = 3,                                
+           y.text.col = TRUE,                            
+           ggtheme = theme_pubr()       
+           )+
+  theme_cleveland()
+
+```
+
+
+```{r, message=FALSE, echo=FALSE}
+
+# contingency table
+cont_table <- table(df_sub$country, df_sub$subject)
+# chi square test of independence
+chisq_test(cont_table)
+
+# contingency table
+cont_table <- table(df_dept$country, df_dept$dept_cat)
+# chi square test of independence
+chisq_test(cont_table)
+
+# contingency table
+cont_table <- table(df$country, df$type)
+# chi square test of independence
+cont_table
+chisq_test(cont_table)
+
+# contingency table
+cont_table <- table(df$country, df$type)
+# chi square test of independence
+cont_table
+chisq_test(cont_table)
+
+```
+
+
+```{r, message=FALSE, echo=FALSE}
+
+ggdensity(df, x = "gds_score",
+   add = "mean", rug = TRUE,
+   color = "country", fill = "country",
+   palette = palette) + 
+  labs(title = "",
+       x = "GDS Score",
+       y = "Density") +
+  theme(
+    axis.title = element_text(size = 10),
+    text = element_text(size = 10)
+  )
+
+
+
+```
+
+
+```{r, message=FALSE, echo=FALSE}
+
+ggplot(df, aes(x = country, fill = type)) + 
+  geom_bar(color = "black") +
+  scale_fill_manual(values = palette) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+  guides(fill = guide_legend(title = "Type of university")) +
+  labs(title = "",
+       x = "Country",
+       y = "Number of programs") +
+  theme(
+    axis.title = element_text(size = 10),
+    text = element_text(size = 8)
+  )
+
+```
+
+
+
+
