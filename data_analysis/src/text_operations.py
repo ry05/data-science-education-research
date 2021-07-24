@@ -6,9 +6,9 @@ import statistics
 import spacy
 import textstat
 from lexicalrichness import LexicalRichness
+import pytextrank
 from spacy.lang.en.stop_words import STOP_WORDS
 nlp = spacy.load("en_core_web_md")
-
 
 class TextPreprocessor:
 
@@ -107,7 +107,7 @@ class ComplexityComputer:
         self.count_units()
         self.compute_ratios()
         self.compute_pos()
-        self.count_pos_units()
+        self.prop_pos_units()
         self.compute_readability()
         self.lexical_diversity_mtld()
 
@@ -127,7 +127,7 @@ class ComplexityComputer:
             proper_nouns_prop = [self.proper_nouns_prop],
             adjectives_prop = [self.adjectives_prop],
             verbs_prop = [self.verbs_prop],
-            numerals_cnt_prop = [self.numerals_cnt_prop],
+            numerals_prop = [self.numerals_prop],
             flesch_kincaid = [self.flesch_kincaid],
             dale_chall = [self.dale_chall],
             mtld = [self.mtld]
