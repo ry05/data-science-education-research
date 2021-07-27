@@ -1,14 +1,14 @@
-# Data Science Education Research
+<h1 align="center">Data Science Education Research</h1>
+
+<p align="center">
+    <img src="dse_logo.png" alt="DSE Logo" width="250" height="250">
+</p>
 
 ![made-with-python](https://img.shields.io/badge/MADE%20WITH-PYTHON-blue?style=for-the-badge&logo=appveyor)
 ![made-with-R](https://img.shields.io/badge/MADE%20WITH-R-blue?style=for-the-badge&logo=appveyor)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
 ![license-mit](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge&logo=appveyor)
 
-
-![Logo](project_logo.png)
-
-    
 # Project Title
 
 A brief description of what this project does and who it's for
