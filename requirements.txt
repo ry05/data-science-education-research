@@ -12,3 +12,4 @@ lexicalrichness
 wordcloud
 stylecloud
 pytextrank
+plotly

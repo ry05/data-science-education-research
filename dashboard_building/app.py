@@ -1,15 +1,14 @@
 import streamlit as st
 import pandas as pd
 
-def show(df):
+from multipage_framework import MultiPage
+from pages import home, explorer, scorer
 
-    st.title("Dashboard")
-    st.header("[Logo here]")
-    st.sidebar.header("Control Panel")
-    option = st.sidebar.selectbox("Select Task", ['View results of project', 'Score a new program'])
-    st.write(df.head())
-    st.write(df.describe())
+app = MultiPage()
+st.title("GDS")
 
-if __name__ == "__main__":
-    PGM_DATA = pd.read_csv("../data_collection/data/labelled/masters_data_programs_india_usa.csv")
-    show(PGM_DATA)
+app.add_page("Explore Programs", explorer.show)
+app.add_page("Home Page", home.show)
+app.add_page("Score New Program", scorer.show)
+
+app.run()
