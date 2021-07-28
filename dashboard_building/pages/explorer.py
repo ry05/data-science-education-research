@@ -4,15 +4,41 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.express as px
 
-df = pd.read_csv("../data_collection/data/labelled/masters_data_programs_india_usa.csv")
+
+@st.cache()
+def load_data():
+    pgm_data = pd.read_csv("../data/masters_data_programs_india_usa.csv")
+    pgm_data = pgm_data[[
+        "id",
+        "uni_name",
+        "pgm_name",
+        "type",
+        "country",
+        "url",
+        "subject",
+        "dept_cat",
+        "descr",
+        "Data Gathering, Preparation and Exploration",
+        "Data Representation and Transformation",
+        "Computing woth Data",
+        "Data Modeling",
+        "Data Visualization and Presentation",
+        "Science about Data Science",
+        "gds_score",
+    ]]
+    gds_dictionary = pd.read_csv("../data/labelled_units_words.csv")
+
+    return pgm_data, gds_dictionary
 
 def show():
 
+    #df, gds_dict = load_data()
+    df = pd.read_csv("../data/masters_data_programs_india_usa.csv")
+
     st.header("Dashboard")
-    st.header("[Logo here]")
 
     st.subheader("Data preview")
-    st.write(df.head())
+    
 
     fig = make_subplots(
         rows=3, cols=2,
@@ -51,9 +77,9 @@ def show():
         df,
         x="Data Gathering, Preparation and Exploration",
         y="Data Representation and Transformation",
-        size="gds_score", color="country", hover_name="id"
+        color="country", hover_name="id"
     )
-    fig.update_layout(height=600, width=900, showlegend=False)
+    fig.update_layout(height=600, width=900, showlegend=True)
     st.plotly_chart(fig)
 
     df_score_sort = df.sort_values(by='gds_score', ascending=False)
@@ -79,6 +105,5 @@ def show():
 
     st.sidebar.subheader("Links")
     st.sidebar.markdown("""
-    - [Project Guide]()
     - [Project Code]()
     """)
