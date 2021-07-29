@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
+
 import plotly.graph_objects as go
+import plotly.figure_factory as ff
 from plotly.subplots import make_subplots
 import plotly.express as px
 
-
 @st.cache()
 def load_data():
-    pgm_data = pd.read_csv("../data/masters_data_programs_india_usa.csv")
+    pgm_data = pd.read_csv("data\masters_data_programs_india_usa.csv")
     pgm_data = pgm_data[[
         "id",
         "uni_name",
@@ -20,25 +21,25 @@ def load_data():
         "descr",
         "Data Gathering, Preparation and Exploration",
         "Data Representation and Transformation",
-        "Computing woth Data",
+        "Computing with Data",
         "Data Modeling",
         "Data Visualization and Presentation",
         "Science about Data Science",
         "gds_score",
     ]]
-    gds_dictionary = pd.read_csv("../data/labelled_units_words.csv")
+    gds_dictionary = pd.read_csv("data/labelled_units_words.csv")
 
     return pgm_data, gds_dictionary
 
 def show():
 
-    #df, gds_dict = load_data()
-    df = pd.read_csv("../data/masters_data_programs_india_usa.csv")
-
-    st.header("Dashboard")
-
-    st.subheader("Data preview")
-    
+    with st.beta_expander("About the dataset"):
+        st.write("""
+            About the dataset
+        """)
+    if st.checkbox("Check this box to view data"):
+        st.subheader("Data Preview")
+        st.write(st.session_state.df)
 
     fig = make_subplots(
         rows=3, cols=2,
@@ -95,10 +96,6 @@ def show():
     fig.update_layout(height=1500, width=1000, showlegend=False)
     st.plotly_chart(fig)
     
-
-
-
-
 
 
 

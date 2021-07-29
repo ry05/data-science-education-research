@@ -6,8 +6,15 @@ def show():
     st.markdown("b")
     st.header("How to use the Dashboard?")
     st.markdown("n")
-    st.header("Are you wondering what is...")
-
+    st.header("What is ...")
+    with st.beta_expander("Data Science Education?"):
+        st.text("""
+        ...
+        """)
+    with st.beta_expander("a Data Program?"):
+        st.text("""
+        ...
+        """)
 
     
 
