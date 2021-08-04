@@ -12,6 +12,8 @@ import numpy as np
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 nlp = spacy.load("en_core_web_md")
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 LABELS = [
     "Data Gathering, Preparation and Exploration",
@@ -381,10 +383,10 @@ def rank_programs(df, priority):
     }
     priority_list = priority.split(',')
     priority_list = [priority.strip() for priority in priority_list]
-    start_score = 12
+    start_score = 64
     for priority in priority_list:
         priority_dic[priority] = start_score
-        start_score -= 2
+        start_score /= 2
 
     # get division weights
     weights = list(priority_dic.values())
@@ -404,9 +406,64 @@ def rank_programs(df, priority):
     # get the weighted GDS score
     weighted_gds_score = np.matmul(gds_prop_matrix, weights)
     df['weighted'] = weighted_gds_score
-    df = df.sort_values(by="weighted", ascending=False)
+    df = df.sort_values(by="weighted", ascending=False).reset_index(drop=True)
 
     return df
+
+class ProgramRecommender:
+
+    def __init__(self, df):
+
+        pgm_id = df['uni_name'] + " - " + df['pgm_name']
+        descr = df['descr']
+        text = df['descr'].apply(lambda x: TextPreprocessor(x).preprocess_text() if x!='Not inferred' else x)
+        self.df_gds = df[[
+            "id",
+            "Data Gathering, Preparation and Exploration",
+            "Data Representation and Transformation",
+            "Computing with Data",
+            "Data Modeling",
+            "Data Visualization and Presentation",
+            "Science about Data Science",
+        ]]
+
+        self.df_descr = pd.DataFrame({
+            'id': pgm_id,
+            'descr': descr,
+            'text': text
+        })
+
+        # vectorize program descriptions
+        tfidf = TfidfVectorizer(
+            stop_words=STOP_WORDS
+        )
+        tfidf_df_descr = tfidf.fit_transform(self.df_descr['text'])
+
+        # make the main dataset
+        prog_descr_df = pd.DataFrame(tfidf_df_descr.todense(), columns=tfidf.get_feature_names())
+        self.dataset = pd.concat([self.df_gds, prog_descr_df], axis=1)
+
+        # compute similarity matrix
+        features = self.dataset.drop(['id'], axis=1)
+        self.cosine_sim_programs = cosine_similarity(features)
+
+    def get_id_from_index(self, idx):
+        return self.dataset[self.dataset.index == idx]['id'].values[0]
+
+    def get_index_from_id(self, pgm_id):
+        return self.dataset[self.dataset['id'] == pgm_id].index.values[0]
+
+    def get_most_similar(self, pgm_name, npgms=5):
+        pgm_index = self.get_index_from_id(pgm_name)
+        similar_pgms = list(enumerate(self.cosine_sim_programs[pgm_index]))
+        sorted_similar_pgms = sorted(similar_pgms,key=lambda x:x[1],reverse=True)[1:]
+
+        top_n_pgms = sorted_similar_pgms[:npgms]
+        
+        return ([self.get_id_from_index(idx[0]) for idx in top_n_pgms]) 
+
+    
+
 
 
 

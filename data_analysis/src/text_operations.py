@@ -6,7 +6,6 @@ import statistics
 import spacy
 import textstat
 from lexicalrichness import LexicalRichness
-import pytextrank
 from spacy.lang.en.stop_words import STOP_WORDS
 nlp = spacy.load("en_core_web_md")
 

@@ -13,8 +13,6 @@ st.session_state.comp_courses = None
 st.session_state.scored = None
 
 def show():
-    st.header("How does scoring work?")
-    st.markdown("text")
 
     st.header("Enter details of the program")
     with st.form("input_form"):
@@ -53,13 +51,9 @@ def show():
         )
         st.plotly_chart(fig)
 
-
-
-
-
-    
-
+    '''
     st.sidebar.subheader("Links")
     st.sidebar.markdown("""
     - [Project Code]()
     """)
+    '''

@@ -1,8 +1,14 @@
 import streamlit as st
 import pandas as pd
-
+from PIL import Image
 from multipage_framework import MultiPage
 from pages import home, explorer, scorer, find
+
+logo = Image.open('assets/dse_logo.png')
+st.set_page_config(
+    page_title="Project Demo",
+    page_icon=logo
+)
 
 @st.cache(allow_output_mutation=True)
 def load_data():
@@ -39,7 +45,6 @@ logo = "assets/app_header.png"
 st.image(logo, width=800)
 
 app.add_page("Home Page", home.show)
-app.add_page("Explore Programs", explorer.show)
 app.add_page("Score New Program", scorer.show)
 app.add_page("Find Program", find.show)
 
