@@ -1,93 +1,46 @@
-<h1 align="center">Data Science Education Research</h1>
+# Code Repository for `Analyzing the Content of Masters' Curricula using a Dictionary-based Approach`
 
-<p align="center">
-    <img src="dse_logo.png" alt="DSE Logo" width="250" height="250">
-</p>
+Dissertation submitted in part completion of the MSc in Applied Social Data Science (2020-2021) at the Department of Methodology, London School of Economics and Political Science
 
-![made-with-python](https://img.shields.io/badge/MADE%20WITH-PYTHON-blue?style=for-the-badge&logo=appveyor)
-![made-with-R](https://img.shields.io/badge/MADE%20WITH-R-blue?style=for-the-badge&logo=appveyor)
-[![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
-![license-mit](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge&logo=appveyor)
+## Project Abstract
 
-# Project Title
-
-A brief description of what this project does and who it's for
+The growing interest in data science has created a demand for well-trained professionals who can help organizations make better decisions with the help of data. As a response to this demand, data science education programs have been developed in universities across the world. These embryonic programs will greatly benefit from research that evaluates their contents to improve their effectiveness. However, there is a dearth of such research into the contents of these expensive programs and the ones that exist are mostly limited to a very small subset of the offered programs in the USA. In this project, I have made an attempt to study and evaluate these programs in a much broader sense and included programs from both India and the USA, making comparisons across the contents of data-related masters’ programs as well as administrative variables such as the funding of universities and types of departments offering the program. Data on 111 programs were collected and a dictionary approach was used to quantitatively analyze and compare the programs using the Greater Data Science framework. It was discovered that current programs place great focus in computing concepts while they do not offer enough focus on topics relating to reproducibility, ethics or other concepts that make a up a “science”. Differences were observed between programs across the two countries in the contents of the programs. A prototype of a web-based program recommender was developed to use the GDS dictionary created in this project to evaluate new programs. The dictionary approach was coupled with a content-based recommendation system to develop a program recommender that will connect learners to suitable programs. It is reasoned that this tool will be developed into a larger, more effective product in the future.
 
 ## Table of Contents
 
 
 ## Badges
 
-Add badges from somewhere like: [shields.io](https://shields.io/)
-
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
-
+<p align="center">
+  ![made-with-python](https://img.shields.io/badge/MADE%20WITH-PYTHON-blue?style=for-the-badge&logo=appveyor)
+  ![made-with-R](https://img.shields.io/badge/MADE%20WITH-R-blue?style=for-the-badge&logo=appveyor)
+  [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)](https://jupyter.org/try)
+</p>
   
 ## Acknowledgements
 
- - LSE Dept.
+ - Department of Methodology, London School of Economics and Political Science
 
 ## Inspiration
 
 List the several points of inspiration for your work.
-  
-## Authors
-
-- [@katherinepeterson](https://www.github.com/octokatherine)
-
   
 ## Demo
 
 Insert gif or link to demo
 
   
-## Documentation
+## Project Report
 
+Insert this  
 [Documentation](https://linktodocumentation)
 
-  
-## Lessons Learned
+ 
+## Code Repository Structure
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
 
-  
-## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
-
-  
-## Optimizations
-
-What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
-
-  
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://link-to-project
-```
-
-Go to the project directory
-
-```bash
-  cd my-project
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run start
-```
+## Running the `Data Program Selector` web tool
 
   
 ## Screenshots
@@ -97,28 +50,18 @@ Start the server
   
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+- python
+- R
 
-**Server:** Node, Express
+### Libraries
 
-  
-## Usage/Examples
+pandas
+streamlit
+...
 
-```javascript
-import Component from 'my-project'
+### Computational Tools
 
-function App() {
-  return <Component />
-}
-```
-
-  
-## Running Tests
-
-To run tests, run the following command
-
-```bash
-  npm run test
-```
+- Jupyter Notebook
+- Deepnote
 
   
