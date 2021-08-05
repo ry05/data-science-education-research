@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 from pages.helpers import rank_programs, ProgramRecommender
 

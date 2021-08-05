@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 from multipage_framework import MultiPage
-from pages import home, explorer, scorer, find
+from pages import home, scorer, find
 
 logo = Image.open('assets/dse_logo.png')
 st.set_page_config(

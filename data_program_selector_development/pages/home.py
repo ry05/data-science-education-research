@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 def show():
     st.header("About the Tool")
