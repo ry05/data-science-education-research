@@ -1,4 +1,4 @@
-# Code Repository for `Analyzing the Content of Masters' Curricula using a Dictionary-based Approach`
+# Code Repository for "Analyzing the Content of Masters' Curricula using a Dictionary-based Approach"
 
 Dissertation submitted in part completion of the MSc in Applied Social Data Science (2020-2021) at the Department of Methodology, London School of Economics and Political Science
 
@@ -9,4 +9,33 @@ The growing interest in data science has created a demand for well-trained profe
 ## Deployed Application
 
 The `Data Program Selector` prototype developed can be viewed at [https://share.streamlit.io/ry05/data_program_selector_app/app.py](https://share.streamlit.io/ry05/data_program_selector_app/app.py)
-  
+
+
+## Repository Organization
+------------
+
+    ├── LICENSE                            
+    ├── README.md                           
+    ├── data_collection                     <- Overview and code involved in data collection
+    |    ├── chromedriver_win32             <- Chromedriver installation for dynamic scraping
+    |         ├── chromedriver.exe
+    |    ├── data_collection                <- All about data collection methodology employed
+    |         ├── README.md                 <- Explanantion of differesent data assets collected
+    |         ├── PPL
+    |         ├── intermediate
+    |         ├── processed
+    |         ├── labelled
+    |         ├── notebooks_for_cleaning
+    |    ├── scraping
+    ├── data_analysis                       <- Code to analyse collected data
+    |    ├── src                            <- Helper functions used
+    |    ├── notebooks                      <- Jupyter notebooks and R markdown notebooks with data analysis
+    |    ├── data_labeling                  <- Code for the data labelling software created in Streamlit
+    ├── data_program_selector_development   <- Code for the Data PRogram Selector tool deployed on Streamlit
+    ├── reports
+    |   ├── Dissertation.pdf              <- Final copy of Dissertation submitted for degree 
+    ├── .gitignore                        <- Files that need not be pushed to git
+    ├── dse_logo.png                      <- PNG logo for project
+    ├── requirements.txt                  <- The requirements file for reproducing the analysis environment.
+    ├── setup.sh                          <- Bash script to install all dependencies for reproducing the project
+--------
